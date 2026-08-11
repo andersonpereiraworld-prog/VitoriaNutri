@@ -134,6 +134,16 @@
   .hero-copy h1 em{ font-style:normal; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .hero-copy p{ font-size:18px; max-width:460px; margin-bottom:34px; }
   .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:38px; }
+  @keyframes heroFadeUp{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:translateY(0); } }
+  .hero-copy .eyebrow, .hero-copy h1, .hero-copy p, .hero-copy .hero-actions{
+    opacity:0; animation: heroFadeUp 1s cubic-bezier(.16,.8,.24,1) forwards;
+  }
+  .hero-copy h1{ animation-delay:.18s; }
+  .hero-copy p{ animation-delay:.4s; }
+  .hero-copy .hero-actions{ animation-delay:.58s; }
+  @media(prefers-reduced-motion: reduce){
+    .hero-copy .eyebrow, .hero-copy h1, .hero-copy p, .hero-copy .hero-actions{ animation:none; opacity:1; }
+  }
 
   @media(max-width:760px){
     .hero{ align-items:flex-start; }
